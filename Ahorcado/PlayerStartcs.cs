@@ -13,6 +13,7 @@ namespace Ahorcado
         public char letter;
         public int SaveRandom = 0;
         public string noYes = "";
+        public string YesNoTwo = "";
         public bool lose1 = false;
         public bool lose2 = false;
         public bool lose3 = false;
@@ -220,8 +221,8 @@ namespace Ahorcado
             {
                 format4character[3] = "A";
                 Console.Clear();
-                Format4Character();
-            }      
+                GameWin();
+            }
             else
             {
                 Healths--;
@@ -240,7 +241,6 @@ namespace Ahorcado
         }
         public void Failed()
         {
-                Console.ForegroundColor = ConsoleColor.Red;
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(" ");
                 Console.WriteLine("Has perdido y te has ahorcado!   |  Reiniciar? Y/N ");
@@ -378,6 +378,67 @@ namespace Ahorcado
                 Thread.Sleep(1000);
                 Console.Clear();
                 Format5Character();
+            }
+
+        }
+        public void GameWin()
+        {
+            if (format4character[0] == "H" && format4character[1] ==  "O"
+               && format4character[2] == "L" && format4character[3] == "A")
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(" ");
+                Console.WriteLine("Has ganado y no te has ahorcado!   |  Reiniciar? Y/N ");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("------------------------------------"
++ "\n|                                  ");
+                Console.WriteLine("|           {0}  {1}  {2}  {3} {4}            ", "W", "I", "N", "E", "R");
+                Console.WriteLine("|          -  -  -  -  -         "
+                          + "\n|                 {0}                 "
+                          + "\n|                {1}{2}{3}            "
+                          + "\n|               {4}   {5}             "
+                          + "\n|               {6}{7}{8}{9}{10}      "
+                          + "\n|                {11}{12}{13}         "
+                          + "\n|                 {14}                "
+                          + "\n|                 {15}                "
+                          + "\n|                {16} {17}          "
+                          + "\n" +
+                              "------------------------------------"
+                          , formatLose[0], formatLose[1], formatLose[2], formatLose[3], formatLose[4],
+                          formatLose[5], formatLose[6], formatLose[7], formatLose[8], formatLose[9],
+                          formatLose[10], formatLose[11], formatLose[12], formatLose[13], formatLose[14]
+                          , formatLose[15], formatLose[16], formatLose[17]); //18
+            }
+
+            YesNoTwo = Console.ReadLine();
+            if (YesNoTwo == "Y" || YesNoTwo == "y")
+            {
+                Healths = 4;
+                lose1 = false;
+                lose2 = false;
+                lose3 = false;
+                lose4 = false;
+                formatLose = new string[]
+            {
+                "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
+            };
+                format4character = new string[]
+            {
+                "*", "*", "*", "*"
+            };
+                words = new List<string>() { "hola", "mundo", "ahorcado", "programacion", "visual", "vsC#" };
+                format5Character = new string[]
+            {
+                "*", "*", "*", "*", "*"
+            };
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Loading party....");
+                Console.ForegroundColor = ConsoleColor.White;
+                Thread.Sleep(2000);
+                Console.Clear();
+                Verification();
             }
         }
         public void Format6Character()
