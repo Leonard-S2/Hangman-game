@@ -1,0 +1,8 @@
+C:\Users\Leo\source\repos\Ahorcado\Ahorcado\bin\Debug\Ahorcado.exe.config
+C:\Users\Leo\source\repos\Ahorcado\Ahorcado\bin\Debug\Ahorcado.exe
+C:\Users\Leo\source\repos\Ahorcado\Ahorcado\bin\Debug\Ahorcado.pdb
+C:\Users\Leo\source\repos\Ahorcado\Ahorcado\obj\Debug\Ahorcado.csproj.AssemblyReference.cache
+C:\Users\Leo\source\repos\Ahorcado\Ahorcado\obj\Debug\Ahorcado.csproj.SuggestedBindingRedirects.cache
+C:\Users\Leo\source\repos\Ahorcado\Ahorcado\obj\Debug\Ahorcado.csproj.CoreCompileInputs.cache
+C:\Users\Leo\source\repos\Ahorcado\Ahorcado\obj\Debug\Ahorcado.exe
+C:\Users\Leo\source\repos\Ahorcado\Ahorcado\obj\Debug\Ahorcado.pdb
