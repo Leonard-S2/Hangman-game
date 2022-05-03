@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +15,8 @@ namespace Ahorcado
         public string noYes = "";
         public bool lose1 = false;
         public bool lose2 = false;
+        public bool lose3 = false;
+        public bool lose4 = false;
         public string[] formatLose = new string[]
             {
                 "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
@@ -36,7 +38,7 @@ namespace Ahorcado
         public void Verification()
         {
             Random rnd = new Random();
-            SaveRandom = rnd.Next(wordsIds[0], wordsIds[1]);
+            SaveRandom = rnd.Next(wordsIds[0], wordsIds[2]);
             words[0] = "";
             words[1] = "";
             words[2] = "";
@@ -131,8 +133,9 @@ namespace Ahorcado
                 formatLose[5] += "|";
             }
 
-            if (Healths == 2 && lose1 == true)
+            if (Healths == 2 && lose2 == false && lose1 == true)
             {
+                lose2 = true;
                 formatLose[6] += "|";
                 formatLose[7] += "_";
                 formatLose[8] += "_";
@@ -140,17 +143,18 @@ namespace Ahorcado
                 formatLose[10] += "|";
                 formatLose[11] += "/";
             }
-            if (Healths == 1 && lose2 == false)
+            if (Healths == 1 && lose3 == false && lose2 == true && lose1 == true)
             {
-                lose2 = true;
+                lose3 = true;
                 formatLose[12] += "|";
                 formatLose[13] += "\\";
                 formatLose[14] += "|";
                 formatLose[15] += "|";
                 formatLose[16] += "/";
             }
-            if (Healths < 1 && lose2 == true)
+            if (Healths < 1 && lose4 == false && lose2 == true && lose1 == true && lose3 == true)
             {
+                lose4 = true;
                 formatLose[17] += "\\";
                 Failed();
             }
@@ -265,6 +269,23 @@ namespace Ahorcado
             if (noYes == "Y" || noYes == "y")
             {
                 Healths = 4;
+                lose1 = false;
+                lose2 = false;
+                lose3 = false;
+                lose4 = false;
+                formatLose = new string[]
+            {
+                "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
+            };
+                format4character = new string[]
+            {
+                "*", "*", "*", "*"
+            };
+                words = new List<string>() { "hola", "mundo", "ahorcado", "programacion", "visual", "vsC#" };
+                format5Character = new string[]
+            {
+                "*", "*", "*", "*", "*"
+            };
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Loading party....");
@@ -282,9 +303,9 @@ namespace Ahorcado
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("------------------------------------"
-+ "\n|                                  |");
-            Console.WriteLine("|         {0}  {1}  {2}  {3}  {4}            |", format5Character[0], format5Character[1], format5Character[2], format5Character[3], format5Character[4]);
-            Console.WriteLine("|         -  -  -  -  -            |"
++ "\n|                                  ");
+            Console.WriteLine("|         {0}  {1}  {2}  {3}  {4}            ", format5Character[0], format5Character[1], format5Character[2], format5Character[3], format5Character[4]);
+            Console.WriteLine("|         -  -  -  -  -               "
                           + "\n|                 {0}                 "
                           + "\n|                {1}{2}{3}            "
                           + "\n|               {4}   {5}             "
